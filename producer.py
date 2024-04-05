@@ -5,7 +5,7 @@ import json
 client = MongoClient('mongodb://localhost:27017/')
 client.server_info()
 db = client['provaM9']
-colection = db['prova-gu']
+collection = db['provita']
 
 consumer_config = {
     'bootstrap.servers': 'localhost:29092,localhost:39092',
@@ -63,7 +63,7 @@ try:
                 print(msg.error())
                 break
         print(f'Received message: {msg.value().decode("utf-8")}')
-        colection.insert_one({'msg':msg.value().decode("utf-8")})
+        collection.insert_one({'msg':msg.value().decode("utf-8")})
 except KeyboardInterrupt:
     pass
 finally:

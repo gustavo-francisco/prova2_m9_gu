@@ -33,9 +33,9 @@ def persistence():
     msg = consumer.poll(timeout=0.1)
     new_message = msg.value().decode("utf-8")
     new_message = new_message.replace("'", "\"")
-    colection.insert_one({'test_msg':new_message})
+    collection.insert_one({'test_msg':new_message})
 
     client = MongoClient('mongodb://localhost:27017/')
     db = client['provaM9']
-    colection = db['prova-gu']
-    assert colection.find_one(message) == message
+    collection = db['prova-gu']
+    assert collection.find_one(message) == message
