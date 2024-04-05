@@ -5,7 +5,7 @@ import json
 client = MongoClient('mongodb://localhost:27017/')
 client.server_info()
 db = client['provaM9']
-collection = db['provita']
+collection = db['provitas']
 
 consumer_config = {
     'bootstrap.servers': 'localhost:29092,localhost:39092',
